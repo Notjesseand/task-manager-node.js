@@ -8,19 +8,19 @@ const {
   deleteTask,
 } = require("../controllers/task.controller");
 
-// getting all products in the databse
+// getting all tasks in the databse
 router.get("/", getTasks);
 
-// getting a single product based on ID
+// getting a single task based on ID
 router.get("/:id", getTask);
 
-// adding a new product
+// adding a new task
 router.post("/", addTask);
 
-// updating a product
+// updating a task
 router.put("/:id", updateTask);
 
-// deleting a product
+// deleting a task
 router.delete("/:id", deleteTask);
 
 module.exports = router;
