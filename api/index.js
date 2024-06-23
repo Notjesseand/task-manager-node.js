@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const productRoute = require("../routes/task.routes");
+const TaskRoute = require("../routes/task.routes");
 const cors = require("cors");
 const connectDB = require("../db/connect");
 const port = 3000;
@@ -14,7 +14,7 @@ app.use(cors());
 // to enable addition of data to database in non json format like form data
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/v1/tasks/", productRoute);
+app.use("/api/v1/tasks/", TaskRoute);
 
 app.get("/", (req, res) => {
   res.send("<h1>home</h1>");

@@ -8,15 +8,15 @@ const getTasks = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-// fetching a single product from the database
+// fetching a single task from the database
 const getTask = async (req, res) => {
   const { id } = req.params;
   try {
-    const singleProduct = await product.findById(id);
-    if (!singleProduct) {
-      return res.status(404).json({ message: "product not found" });
+    const singleTask = await Task.findById(id);
+    if (!singleTask) {
+      return res.status(404).json({ message: "Task not found" });
     }
-    res.status(200).json(singleProduct);
+    res.status(200).json(singleTask);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -31,7 +31,7 @@ const addTask = async (req, res) => {
   }
 };
 
-// updating a product
+// updating a task
 const updateTask = async (req, res) => {
   try {
     const { id } = req.params;
@@ -50,9 +50,9 @@ const deleteTask = async (req, res) => {
     const { id } = req.params;
     const task = await Task.findByIdAndDelete(id);
     if (!task) {
-      return res.status(404).json({ message: "product not found" });
+      return res.status(404).json({ message: "Task not found" });
     }
-    res.status(200).json({ message: "Product deleted successfully" });
+    res.status(200).json({ message: "Task deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
